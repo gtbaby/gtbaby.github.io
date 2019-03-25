@@ -1,0 +1,16 @@
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+.git/
+._config.yml.un~
+_config.yml~
+package.json
+package-lock.json
+themes/*
+!themes/next
+themes/next/*
+!themes/next/_config.yml
