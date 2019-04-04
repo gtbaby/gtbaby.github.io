@@ -21,7 +21,7 @@ categories: Blog搭建
 # hexo和next主题的安装
 ## hexo
 ### hexo是啥？
-Hexo 是一个快速、简洁且高效的博客框架。[Hexo 使用 Markdown](https://daringfireball.net/projects/markdown/)（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
+Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用[Markdown](https://daringfireball.net/projects/markdown/)（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
 ### 安装
 在安装前一定给这hexo单独一个空间，比如，我放在 `D:\workspace\githubpage\hexo`中。
 Hexo的安装具体可以参看[Hexo的文档](https://hexo.io/docs/)
@@ -102,9 +102,11 @@ skip_render: README.md
 
 ### 将标签图标改掉
 在文章下方，标签前的图标是个#号，想改成那种标签的图标，怎么改呢？
-修改`/themes/next/layout/_macro/post.swig`文件，找到`rel="tag">#`，将`#`换成`<i class="fa fa-tag"></i>`
+> 修改`/themes/next/layout/_macro/post.swig`文件，找到`rel="tag">#`，将`#`换成`<i class="fa fa-tag"></i>`
+
 我查的答案中，只给了上面这一句，我照着操作后，就成功了，但是，为什么需要这样子改呢？为什么改了一行代码，#就变成了一个图标呢？这激起了我的好奇心，于是就开动搜索引擎，一顿操作。没搜到确切的答案，但找到了一些相关资料，可以推断出来为什么要这样改。
 资料如下（来源：[知乎-Hexo博客之主题美化](https://zhuanlan.zhihu.com/p/28360099)）
+
 > ### 侧边栏图标设置
  NexT网站已经告诉我们如何为博客添加社交链接并设定链接图标，但是我们国内一些常用的社交网站如知乎、豆瓣等在 Font Awesome 图标库中没有对应的图标，结果就是我们添加的这些社交链接图标都是默认的。在主题配置文件中，设定链接图标对应的字段是 social_icons， 其键值格式是 匹配键名: 图标名称， 图标名称 就是对应的 Font Awesome 图标的名字（不必带 fa- 前缀）。实现方法：到 Font Awesome 图标库中找寻找喜爱的图标，复制图标的名字替换下面代码箭头处的默认图标名字即可。如下所示：
  ```
