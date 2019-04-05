@@ -182,7 +182,7 @@ deploy:
  `hexo deploy` | `hexo d` | 部署到GitHub
  `hexo help` | - | 查看帮助
  `hexo version` | - | 查看Hexo版本
- `hexo clearn` | - | 清理缓存文件 (db.json)和生成的文件夹 (public)
+ `hexo clean` | - | 清理缓存文件 (db.json)和生成的文件夹 (public)
 
 ## 组合命令
 ```
