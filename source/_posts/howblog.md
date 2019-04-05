@@ -4,12 +4,12 @@ date: 2019-03-24
 tags: [Next, Hexo]
 categories: Blog搭建
 ---
-这周末，折腾了很长时间，终于在GitHub上基于[Hexo](https://hexo.io)搭建了个人网页，用的是比较热门的[Next](https://theme-next.org/)主题。
+这周末，折腾了很长时间，终于在GitHub上基于[Hexo](https://hexo.io)搭建了个人网页，用的是比较热门的[NexT](https://theme-next.org/)主题。
 <!-- more -->
 # 参考
 ## 官方文档
-* [Hexo的docs](https://hexo.io/docs/)
-* [Hexo主题——Next的说明文档](http://theme-next.iissnan.com/)
+* [Hexo的文档](https://hexo.io/docs/)
+* [Hexo主题之——NexT的说明文档](http://theme-next.iissnan.com/)
 (这个说明文档有些过时，很多地方不符合当前Next版本:V7.0.1)
 
 ## 个人博客教程
@@ -18,9 +18,10 @@ categories: Blog搭建
 * [Github Pages + Hexo 博客搭建，Next主题个性化修改](https://www.lixint.me/hexo-blog.html)
 (这个教程挺好，最近有更新，里面有关Next主题的修改比较符合当前的版本)
 
-# hexo和next主题的安装
-## hexo
-### hexo是啥？
+
+# Hexo和NexT主题的安装
+## Hexo
+### Hexo是啥？
 Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用[Markdown](https://daringfireball.net/projects/markdown/)（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
 ### 安装
 在安装前一定给这hexo单独一个空间，比如，我放在 `D:\workspace\githubpage\hexo`中。
@@ -131,6 +132,62 @@ skip_render: README.md
 最简单的做法，在想分割的地方，加入一行
 ```
 <!-- more -->
+```
+
+# 将写好的东西部署到GitHub Page上
+经过上面的的步骤，在本地`\hexo`文件夹下，使用`hexo s`命令后，可以看到：
+```
+INFO  Start processing
+INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.
+```
+在浏览器中输入`http://localhost:4000`就可以看到页面了。
+在这里，如果4000端口被占用，可以用`hexo server -p 端口号`手动指定端口。
+可以看到自己blog的样子了，怎么将其部署到GitHub页面上呢？
+
+## 创建GitHub Page页面
+具体可以参看[GitHub Pages](https://pages.github.com/)
+创建一个repo，名字一定要命名为：`你的github用户名.github.io`
+然后本地的git设置，怎么将本地仓库和远程仓库连接起来，怎么实现SSH推送，这些，我都不讲了，在其他教程里很清楚，而且，我懒啊~
+好吧，在这里推荐一个[Git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
+
+## 打开hexo配置文件`_config.yml`
+最后一行找到 Deployment,有关配置如下，repo后面填上你刚刚创建的仓库名，比方我的，就是下面这个，branch后面填上master，也就是默认的主分支。
+```
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: https://github.com/gtbaby/gtbaby.github.io.git
+  branch: master
+```
+在hexo文件夹下，执行命令`hexo clean && hexo g -d`,稍作等待即可。
+
+插一个我的疑问：
+在hexo的[文档](https://hexo.io/docs/)中，关于部署的部分，这样说到：
+>### How does it work exactly?
+>Your repository will have a master branch when you first made it. Keep working on this branch to create your site. When you deploy Hexo will create, or update, a new branch on the remote site (called published in the config above). Deployment won’t create a new branch locally, nor will it mess with your existing source code in the master branch locally or on the remote. You still need to keep pushing commits to the master branch manually to the remote server to keep your site backed up. In addition, if you are using a CNAME file to customize your Github Pages domain name, you need to put the CNAME file under source_dir so that Hexo can push it to the published branch.
+
+他说这个部署分支应该和文章版本控制的分支是不同的，部署分支用`published`。但是，问题就出在这里！GitHub Pages文档中明确说到，在GitHub页面上只显示master分支的内容。推送到`publish`分支是没有用的！
+我照着这个说明弄了半天，还是没成功，把publish分支设置为默认分支也没有用。
+
+# Hexo 常用命令总结
+
+## 常用命令
+具体命令可参考[hexo commands](https://hexo.io/docs/commands)
+ 命令 | 缩写 |含义
+ ---  | --- | ---
+ `hexo new` | `hexo n` | 新建文章
+ `hexo generate` | `hexo g` | 生成静态页面至public目录
+ `hexo server` | `hexo s` | 开启预览访问端口（默认端口4000，'ctrl + c'关闭server）
+ `hexo deploy` | `hexo d` | 部署到GitHub
+ `hexo help` | - | 查看帮助
+ `hexo version` | - | 查看Hexo版本
+ `hexo clearn` | - | 清理缓存文件 (db.json)和生成的文件夹 (public)
+
+## 组合命令
+```
+hexo s -g #生成并本地预览
+hexo d -g #生成并上传
 ```
 
 # 结语
