@@ -174,6 +174,7 @@ deploy:
 
 ## 常用命令
 具体命令可参考[hexo commands](https://hexo.io/docs/commands)
+
  命令 | 缩写 |含义
  ---  | --- | ---
  `hexo new` | `hexo n` | 新建文章
