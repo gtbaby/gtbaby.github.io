@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="这周末，折腾了很长时间，终于在GitHub上基于Hexo搭建了个人网页，用的是比较热门的NexT主题。">
+<meta name="keywords" content="Next,Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo + Next + GitHubPage搭建个人blog">
+<meta property="og:url" content="http://yoursite.com/2019/03/24/howblog/index.html">
+<meta property="og:site_name" content="StayHungry">
+<meta property="og:description" content="这周末，折腾了很长时间，终于在GitHub上基于Hexo搭建了个人网页，用的是比较热门的NexT主题。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-05T01:53:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo + Next + GitHubPage搭建个人blog">
+<meta name="twitter:description" content="这周末，折腾了很长时间，终于在GitHub上基于Hexo搭建了个人网页，用的是比较热门的NexT主题。">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/24/howblog/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Hexo + Next + GitHubPage搭建个人blog | StayHungry</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">StayHungry</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Stay Hungry & Stay Foolish</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/gtbaby" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/howblog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gtbaby">
+      <meta itemprop="description" content="我的blog">
+      <meta itemprop="image" content="/images/avatar-g.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="StayHungry">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hexo + Next + GitHubPage搭建个人blog
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-24 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-24T00:00:00+08:00">2019-03-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-05 09:53:58" itemprop="dateModified" datetime="2019-04-05T09:53:58+08:00">2019-04-05</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Blog搭建/" itemprop="url" rel="index"><span itemprop="name">Blog搭建</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这周末，折腾了很长时间，终于在GitHub上基于<a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a>搭建了个人网页，用的是比较热门的<a href="https://theme-next.org/" target="_blank" rel="noopener">NexT</a>主题。<br><a id="more"></a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h2><ul>
+<li><a href="https://hexo.io/docs/" target="_blank" rel="noopener">Hexo的文档</a></li>
+<li><a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">Hexo主题之——NexT的说明文档</a><br>(这个说明文档有些过时，很多地方不符合当前Next版本:V7.0.1)</li>
+</ul>
+<h2 id="个人博客教程"><a href="#个人博客教程" class="headerlink" title="个人博客教程"></a>个人博客教程</h2><ul>
+<li><a href="http://michael728.github.io/2015/11/30/hexo-next-optimize/" target="_blank" rel="noopener">Hexo之Next主题优化整理_Michael翔</a></li>
+<li><a href="https://baoyuzhang.github.io/2017/05/12/%E3%80%90Hexo%E6%90%AD%E5%BB%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2%E5%85%A8%E7%BA%AA%E5%BD%95%E3%80%91%EF%BC%88%E4%B8%89%EF%BC%89%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="noopener">【Hexo搭建独立博客全纪录】_baoyuzhang</a></li>
+<li><a href="https://www.lixint.me/hexo-blog.html" target="_blank" rel="noopener">Github Pages + Hexo 博客搭建，Next主题个性化修改</a><br>(这个教程挺好，最近有更新，里面有关Next主题的修改比较符合当前的版本)</li>
+</ul>
+<h1 id="Hexo和NexT主题的安装"><a href="#Hexo和NexT主题的安装" class="headerlink" title="Hexo和NexT主题的安装"></a>Hexo和NexT主题的安装</h1><h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><h3 id="Hexo是啥？"><a href="#Hexo是啥？" class="headerlink" title="Hexo是啥？"></a>Hexo是啥？</h3><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用<a href="https://daringfireball.net/projects/markdown/" target="_blank" rel="noopener">Markdown</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>在安装前一定给这hexo单独一个空间，比如，我放在 <code>D:\workspace\githubpage\hexo</code>中。<br>Hexo的安装具体可以参看<a href="https://hexo.io/docs/" target="_blank" rel="noopener">Hexo的文档</a><br>首先需要安装</p>
+<ul>
+<li><a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a></li>
+<li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
+</ul>
+<p>这里主要说一下在安装过程中出现的问题。<br>在安装过程中，由于连接国外网站，速度相当感人，所以在这里用淘宝源替换,并安装hexo<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 添加淘宝源</span></span><br><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></p>
+<p>之后用法是和npm一样的，只不过把<code>npm install</code>用<code>cnpm install</code>代替</p>
+<h2 id="NexT主题"><a href="#NexT主题" class="headerlink" title="NexT主题"></a>NexT主题</h2><p>Next 主题我也不多说了，那些参考文档里说的都很详细。<br>我主要说说我在用的过程中遇到的问题。</p>
+<h3 id="把NexT主题clone到哪里？"><a href="#把NexT主题clone到哪里？" class="headerlink" title="把NexT主题clone到哪里？"></a>把NexT主题clone到哪里？</h3><p>我们把hexo安装好后，进去hexo的文件夹，可以看到有一个<code>themes</code>文件夹，next就是放在这个文件夹下的，其实<a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">next仓库</a>的readme文件已经写得很清楚了(捂脸):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd hexo</span><br><span class="line">$ git clone https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure></p>
+<h3 id="怎么切换主题风格"><a href="#怎么切换主题风格" class="headerlink" title="怎么切换主题风格"></a>怎么切换主题风格</h3><p>在<code>\themes\next</code>中找到<code>_config.yml</code>文件找到<code>Schemes Settings</code>，想使用哪种风格，把其他三种注释掉即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># ---------------------------------------------------------------</span><br><span class="line"># Scheme Settings</span><br><span class="line"># ---------------------------------------------------------------</span><br><span class="line"></span><br><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure></p>
+<h3 id="怎么把侧边栏的头像设置成圆形？"><a href="#怎么把侧边栏的头像设置成圆形？" class="headerlink" title="怎么把侧边栏的头像设置成圆形？"></a>怎么把侧边栏的头像设置成圆形？</h3><p>找到<code>/themes/next/source/css/_common/components/sidebar/sidebar-author.styl</code>，修改如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.site-author-image &#123;</span><br><span class="line">  display: block;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  padding: $site-author-image-padding;</span><br><span class="line">  max-width: $site-author-image-width;</span><br><span class="line">  height: $site-author-image-height;</span><br><span class="line">  border: $site-author-image-border-width solid $site-author-image-border-color;</span><br><span class="line">  opacity: hexo-config(&apos;avatar.opacity&apos;) is a &apos;unit&apos; ? hexo-config(&apos;avatar.opacity&apos;) : 1;</span><br><span class="line">  #加入下面5行，把头像设置成圆形（这行别复制进去）</span><br><span class="line">  border-radius: 50%</span><br><span class="line">  webkit-transition: 1.4s all;</span><br><span class="line">  moz-transition: 1.4s all;</span><br><span class="line">  ms-transition: 1.4s all;</span><br><span class="line">  transition: 1.4s all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="在底部和文章页面加上访问量"><a href="#在底部和文章页面加上访问量" class="headerlink" title="在底部和文章页面加上访问量"></a>在底部和文章页面加上访问量</h3><p>打开主题配置文件<code>/themes/next/_config.yml</code>,搜索<code>busuanzi_count</code>,将对应的<code>false</code>改为<code>true</code>,<code>total</code>项为站点总统计，显示在站点首页底部，分为<code>total_visitors</code>：总访问人数，<code>total_views</code>：总访问量。<code>post_views</code>为文章访问量，显示在文章页面的标题下方。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  enable: true</span><br><span class="line">  total_visitors: true</span><br><span class="line">  total_visitors_icon: user</span><br><span class="line">  total_views: true</span><br><span class="line">  total_views_icon: eye</span><br><span class="line">  post_views: true</span><br><span class="line">  post_views_icon: eye</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>：不蒜子之前更新过一次，Next主题如果设置后不生效请检查一下<code>themes\next\layout\_third-party\analyticsbusuanzi-counter.swig</code>文件中的链接是否是<a href="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" target="_blank" rel="noopener">https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js</a></p>
+<h3 id="添加README-md文件"><a href="#添加README-md文件" class="headerlink" title="添加README.md文件"></a>添加README.md文件</h3><p>hexo部署时候，会把source下的*.md文件全部解析成网页文件，所以使用hexo部署到仓库后，是没有<code>README.md</code>文件的。有两种方法可以解决这个问题：</p>
+<ol>
+<li><code>\hexo\source</code>根目录下建一个<code>README.MDOWN</code>文件，GitHub是可以将其识别为markdown文件的，hexo却不会将其解析。</li>
+<li><code>\hexo\source</code>根目录下建一个<code>README.md</code>文件，然后修改站点配置文件<code>_config.yml</code>，将<code>skip_render</code>参数的值设置为:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skip_render: README.md</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>显然，第二种方法是比较<strong>优雅</strong>的做法</p>
+<h3 id="将标签图标改掉"><a href="#将标签图标改掉" class="headerlink" title="将标签图标改掉"></a>将标签图标改掉</h3><p>在文章下方，标签前的图标是个#号，想改成那种标签的图标，怎么改呢？</p>
+<blockquote>
+<p>修改<code>/themes/next/layout/_macro/post.swig</code>文件，找到<code>rel=&quot;tag&quot;&gt;#</code>，将<code>#</code>换成<code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code></p>
+</blockquote>
+<p>我查的答案中，只给了上面这一句，我照着操作后，就成功了，但是，为什么需要这样子改呢？为什么改了一行代码，#就变成了一个图标呢？这激起了我的好奇心，于是就开动搜索引擎，一顿操作。没搜到确切的答案，但找到了一些相关资料，可以推断出来为什么要这样改。<br>资料如下（来源：<a href="https://zhuanlan.zhihu.com/p/28360099" target="_blank" rel="noopener">知乎-Hexo博客之主题美化</a>）</p>
+<blockquote>
+<h3 id="侧边栏图标设置"><a href="#侧边栏图标设置" class="headerlink" title="侧边栏图标设置"></a>侧边栏图标设置</h3><p> NexT网站已经告诉我们如何为博客添加社交链接并设定链接图标，但是我们国内一些常用的社交网站如知乎、豆瓣等在 Font Awesome 图标库中没有对应的图标，结果就是我们添加的这些社交链接图标都是默认的。在主题配置文件中，设定链接图标对应的字段是 social_icons， 其键值格式是 匹配键名: 图标名称， 图标名称 就是对应的 Font Awesome 图标的名字（不必带 fa- 前缀）。实现方法：到 Font Awesome 图标库中找寻找喜爱的图标，复制图标的名字替换下面代码箭头处的默认图标名字即可。如下所示：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">social:</span><br><span class="line"> GitHub: https://github.com/username</span><br><span class="line"> 知乎: https://www.zhihu.com/people/feng-di-54-18/activities</span><br><span class="line"></span><br><span class="line">social_icons:</span><br><span class="line"> enable: true</span><br><span class="line"> icons_only: false</span><br><span class="line"> transition: false</span><br><span class="line"> # Icon Mappings.</span><br><span class="line"> # KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome</span><br><span class="line"> GitHub: github  &lt;---</span><br><span class="line"> 知乎: heart-o   &lt;---</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p> 哦~原来<code>fa</code>的就是<code>Font Awesome</code>的意思啊！NexT是可以使用<a href="https://fontawesome.com/icons" target="_blank" rel="noopener">Font Awesome</a>图标库中的图标的。<br>知道了这一点，我们就不难知道，为什么仅仅将<code>#</code>换成<code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code>就可以了。</p>
+<h3 id="设置“阅读原文”按钮"><a href="#设置“阅读原文”按钮" class="headerlink" title="设置“阅读原文”按钮"></a>设置“阅读原文”按钮</h3><p>最简单的做法，在想分割的地方，加入一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="将写好的东西部署到GitHub-Page上"><a href="#将写好的东西部署到GitHub-Page上" class="headerlink" title="将写好的东西部署到GitHub Page上"></a>将写好的东西部署到GitHub Page上</h1><p>经过上面的的步骤，在本地<code>\hexo</code>文件夹下，使用<code>hexo s</code>命令后，可以看到：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure></p>
+<p>在浏览器中输入<code>http://localhost:4000</code>就可以看到页面了。<br>在这里，如果4000端口被占用，可以用<code>hexo server -p 端口号</code>手动指定端口。<br>可以看到自己blog的样子了，怎么将其部署到GitHub页面上呢？</p>
+<h2 id="创建GitHub-Page页面"><a href="#创建GitHub-Page页面" class="headerlink" title="创建GitHub Page页面"></a>创建GitHub Page页面</h2><p>具体可以参看<a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a><br>创建一个repo，名字一定要命名为：<code>你的github用户名.github.io</code><br>然后本地的git设置，怎么将本地仓库和远程仓库连接起来，怎么实现SSH推送，这些，我都不讲了，在其他教程里很清楚，而且，我懒啊~<br>好吧，在这里推荐一个<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">Git教程</a></p>
+<h2 id="打开hexo配置文件-config-yml"><a href="#打开hexo配置文件-config-yml" class="headerlink" title="打开hexo配置文件_config.yml"></a>打开hexo配置文件<code>_config.yml</code></h2><p>最后一行找到 Deployment,有关配置如下，repo后面填上你刚刚创建的仓库名，比方我的，就是下面这个，branch后面填上master，也就是默认的主分支。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/gtbaby/gtbaby.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p>在hexo文件夹下，执行命令<code>hexo clean &amp;&amp; hexo g -d</code>,稍作等待即可。</p>
+<p>插一个我的疑问：<br>在hexo的<a href="https://hexo.io/docs/" target="_blank" rel="noopener">文档</a>中，关于部署的部分，这样说到：</p>
+<blockquote>
+<h3 id="How-does-it-work-exactly"><a href="#How-does-it-work-exactly" class="headerlink" title="How does it work exactly?"></a>How does it work exactly?</h3><p>Your repository will have a master branch when you first made it. Keep working on this branch to create your site. When you deploy Hexo will create, or update, a new branch on the remote site (called published in the config above). Deployment won’t create a new branch locally, nor will it mess with your existing source code in the master branch locally or on the remote. You still need to keep pushing commits to the master branch manually to the remote server to keep your site backed up. In addition, if you are using a CNAME file to customize your Github Pages domain name, you need to put the CNAME file under source_dir so that Hexo can push it to the published branch.</p>
+</blockquote>
+<p>他说这个部署分支应该和文章版本控制的分支是不同的，部署分支用<code>published</code>。但是，问题就出在这里！GitHub Pages文档中明确说到，在GitHub页面上只显示master分支的内容。推送到<code>publish</code>分支是没有用的！<br>我照着这个说明弄了半天，还是没成功，把publish分支设置为默认分支也没有用。</p>
+<h1 id="Hexo-常用命令总结"><a href="#Hexo-常用命令总结" class="headerlink" title="Hexo 常用命令总结"></a>Hexo 常用命令总结</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>具体命令可参考<a href="https://hexo.io/docs/commands" target="_blank" rel="noopener">hexo commands</a></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>缩写</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> <code>hexo new</code></td>
+<td><code>hexo n</code></td>
+<td>新建文章</td>
+</tr>
+<tr>
+<td> <code>hexo generate</code></td>
+<td><code>hexo g</code></td>
+<td>生成静态页面至public目录</td>
+</tr>
+<tr>
+<td> <code>hexo server</code></td>
+<td><code>hexo s</code></td>
+<td>开启预览访问端口（默认端口4000，’ctrl + c’关闭server）</td>
+</tr>
+<tr>
+<td> <code>hexo deploy</code></td>
+<td><code>hexo d</code></td>
+<td>部署到GitHub</td>
+</tr>
+<tr>
+<td> <code>hexo help</code></td>
+<td>-</td>
+<td>查看帮助</td>
+</tr>
+<tr>
+<td> <code>hexo version</code></td>
+<td>-</td>
+<td>查看Hexo版本</td>
+</tr>
+<tr>
+<td> <code>hexo clean</code></td>
+<td>-</td>
+<td>清理缓存文件 (db.json)和生成的文件夹 (public)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="组合命令"><a href="#组合命令" class="headerlink" title="组合命令"></a>组合命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo s -g #生成并本地预览</span><br><span class="line">hexo d -g #生成并上传</span><br></pre></td></tr></table></figure>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>我的搭建和优化过程大抵如此，很多细节其他教程写的很清楚了，我就不写了（其实是懒）。<br>后面遇到新问题，会时不时更新。<br>其实，重要的不是外观，而是这里面的文章质量，费半天劲去美化，没多大必要。建个站点，就是为了将学到的知识输出，向他人分享知识的同时，巩固自己已学的知识。<br>一起学习进步吧！笔芯~</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Next/" rel="tag"><i class="fa fa-tag"></i> Next</a>
+          
+            <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/11/latex1/" rel="prev" title="LaTeX学习1——基本知识部分">
+                LaTeX学习1——基本知识部分 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar-g.png" alt="gtbaby">
+            
+              <p class="site-author-name" itemprop="name">gtbaby</p>
+              <div class="site-description motion-element" itemprop="description">我的blog</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/gtbaby" title="GitHub &rarr; https://github.com/gtbaby" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">1.</span> <span class="nav-text">参考</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#官方文档"><span class="nav-number">1.1.</span> <span class="nav-text">官方文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人博客教程"><span class="nav-number">1.2.</span> <span class="nav-text">个人博客教程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo和NexT主题的安装"><span class="nav-number">2.</span> <span class="nav-text">Hexo和NexT主题的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo"><span class="nav-number">2.1.</span> <span class="nav-text">Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo是啥？"><span class="nav-number">2.1.1.</span> <span class="nav-text">Hexo是啥？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.1.2.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NexT主题"><span class="nav-number">2.2.</span> <span class="nav-text">NexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#把NexT主题clone到哪里？"><span class="nav-number">2.2.1.</span> <span class="nav-text">把NexT主题clone到哪里？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么切换主题风格"><span class="nav-number">2.2.2.</span> <span class="nav-text">怎么切换主题风格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么把侧边栏的头像设置成圆形？"><span class="nav-number">2.2.3.</span> <span class="nav-text">怎么把侧边栏的头像设置成圆形？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在底部和文章页面加上访问量"><span class="nav-number">2.2.4.</span> <span class="nav-text">在底部和文章页面加上访问量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加README-md文件"><span class="nav-number">2.2.5.</span> <span class="nav-text">添加README.md文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将标签图标改掉"><span class="nav-number">2.2.6.</span> <span class="nav-text">将标签图标改掉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#侧边栏图标设置"><span class="nav-number">2.2.7.</span> <span class="nav-text">侧边栏图标设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置“阅读原文”按钮"><span class="nav-number">2.2.8.</span> <span class="nav-text">设置“阅读原文”按钮</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#将写好的东西部署到GitHub-Page上"><span class="nav-number">3.</span> <span class="nav-text">将写好的东西部署到GitHub Page上</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建GitHub-Page页面"><span class="nav-number">3.1.</span> <span class="nav-text">创建GitHub Page页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打开hexo配置文件-config-yml"><span class="nav-number">3.2.</span> <span class="nav-text">打开hexo配置文件_config.yml</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-does-it-work-exactly"><span class="nav-number">3.2.1.</span> <span class="nav-text">How does it work exactly?</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-常用命令总结"><span class="nav-number">4.</span> <span class="nav-text">Hexo 常用命令总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">4.1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合命令"><span class="nav-number">4.2.</span> <span class="nav-text">组合命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结语"><span class="nav-number">5.</span> <span class="nav-text">结语</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gtbaby</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
