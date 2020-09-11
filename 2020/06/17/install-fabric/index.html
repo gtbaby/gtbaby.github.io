@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="StayHungry">
 <meta property="og:description" content="写这篇文章主要是记录下自己在搭建Hyperledger Fabric时候遇到的一些坑。做个备忘吧。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-09-11T07:51:49.734Z">
+<meta property="og:updated_time" content="2020-09-11T07:55:07.005Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安装Hyperledger Fabric记录">
 <meta name="twitter:description" content="写这篇文章主要是记录下自己在搭建Hyperledger Fabric时候遇到的一些坑。做个备忘吧。">
@@ -413,7 +413,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-09-11 15:51:49" itemprop="dateModified" datetime="2020-09-11T15:51:49+08:00">2020-09-11</time>
+                <time title="修改时间：2020-09-11 15:55:07" itemprop="dateModified" datetime="2020-09-11T15:55:07+08:00">2020-09-11</time>
               
             
           </span>
@@ -475,7 +475,37 @@
         <p>写这篇文章主要是记录下自己在搭建Hyperledger Fabric时候遇到的一些坑。做个备忘吧。</p>
 <a id="more"></a>
 <p><strong>搭建环境</strong>：Ubuntu 18.04 LTS系统<br><strong>参考</strong>：<a href="https://hyperledger-fabric.readthedocs.io/zh_CN/latest/install.html" target="_blank" rel="noopener">Hyperledger Fabric中文文档</a></p>
-<h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><p>在官方文档中，需要一些所谓的“先决条件”，主要需要的环境有如下这些：<br>软件 | 版本<br> –  | –<br>cURL | 最新版<br>wget | 最新版<br>Docker | 17.06.2-ce 及以上<br>Docker-compose |  1.14.0 或更高版本<br>Go编程语言 | 1.13.x 版本（我实际安装了1.14.2）</p>
+<h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><p>在官方文档中，需要一些所谓的“先决条件”，主要需要的环境有如下这些：</p>
+<table>
+<thead>
+<tr>
+<th>软件</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cURL</td>
+<td>最新版</td>
+</tr>
+<tr>
+<td>wget</td>
+<td>最新版</td>
+</tr>
+<tr>
+<td>Docker</td>
+<td>17.06.2-ce 及以上</td>
+</tr>
+<tr>
+<td>Docker-compose</td>
+<td>1.14.0 或更高版本</td>
+</tr>
+<tr>
+<td>Go编程语言</td>
+<td>1.13.x 版本（我实际安装了1.14.2）</td>
+</tr>
+</tbody>
+</table>
 <h2 id="安装cURL"><a href="#安装cURL" class="headerlink" title="安装cURL"></a>安装cURL</h2><p>需要安装最新版本，执行命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt install curl</span><br></pre></td></tr></table></figure></p>
 <p>实在不行的话，可以下载编译源码进行安装<a href="https://curl.haxx.se/download/" target="_blank" rel="noopener">cURL下载地址</a></p>
 <h2 id="安装wget"><a href="#安装wget" class="headerlink" title="安装wget"></a>安装wget</h2><p>只有如果使用官方提供的脚本进行安装，则<code>wget</code>将用于下载源码，用<code>apt install</code>即可安装</p>
