@@ -397,12 +397,24 @@
                 
               
 
-              <time title="创建时间：2020-06-17 19:23:40 / 修改时间：20:46:41" itemprop="dateCreated datePublished" datetime="2020-06-17T19:23:40+08:00">2020-06-17</time>
+              <time title="创建时间：2020-06-17 19:23:40" itemprop="dateCreated datePublished" datetime="2020-06-17T19:23:40+08:00">2020-06-17</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-09-11 15:51:49" itemprop="dateModified" datetime="2020-09-11T15:51:49+08:00">2020-09-11</time>
               
             
           </span>
@@ -455,51 +467,16 @@
 
       
         
+          <p>写这篇文章主要是记录下自己在搭建Hyperledger Fabric时候遇到的一些坑。做个备忘吧。</p>
+          <!--noindex-->
           
-            <p>写这篇文章主要是记录下自己在搭建Hyperledger Fabric时候遇到的一些坑。做个备忘吧。<br><strong>搭建环境</strong>：Ubuntu 18.04 LTS系统<br><strong>参考</strong>：<a href="https://hyperledger-fabric.readthedocs.io/zh_CN/latest/install.html" target="_blank" rel="noopener">Hyperledger Fabric中文文档</a></p>
-<h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><p>在官方文档中，需要一些所谓的“先决条件”，主要需要的环境有如下这些：<br>软件 | 版本<br> –  | –<br>cURL | 最新版<br>wget | 最新版<br>Docker | 17.06.2-ce 及以上<br>Docker-compose |  1.14.0 或更高版本<br>Go编程语言 | 1.13.x 版本（我实际安装了1.14.2）</p>
-<h2 id="安装cURL"><a href="#安装cURL" class="headerlink" title="安装cURL"></a>安装cURL</h2><p>需要安装最新版本，执行命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt install curl</span><br></pre></td></tr></table></figure></p>
-<p>实在不行的话，可以下载编译源码进行安装<a href="https://curl.haxx.se/download/" target="_blank" rel="noopener">cURL下载地址</a></p>
-<h2 id="安装wget"><a href="#安装wget" class="headerlink" title="安装wget"></a>安装wget</h2><p>只有如果使用官方提供的脚本进行安装，则<code>wget</code>将用于下载源码，用<code>apt install</code>即可安装</p>
-<h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><p>参考文档：<a href="https://docs.docker.com/engine/install/ubuntu/" target="_blank" rel="noopener">docker的Ubuntu安装文档</a></p>
-<h3 id="卸载旧版本"><a href="#卸载旧版本" class="headerlink" title="卸载旧版本"></a>卸载旧版本</h3><p>旧版本中，docker被称为<code>docker</code>,<code>docker.io</code>,<code>docker-engine</code>等，卸载她们<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure></p>
-<p>若<code>apt</code>报告说这些包没有被安装，那么就说明没有旧的版本。</p>
-<h3 id="通过添加仓库安装docker"><a href="#通过添加仓库安装docker" class="headerlink" title="通过添加仓库安装docker"></a>通过添加仓库安装docker</h3><p>这是比较方便的方法，所以我选这种方式安装</p>
-<h4 id="设置仓库（repository）"><a href="#设置仓库（repository）" class="headerlink" title="设置仓库（repository）"></a>设置仓库（repository）</h4><ol>
-<li><p>更新<code>apt</code>包索引，安装下面这些包使得<code>apt</code>能够通过HTTPS使用仓库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line"></span><br><span class="line">$ sudo apt-get install \</span><br><span class="line">    apt-transport-https \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    gnupg-agent \</span><br><span class="line">    software-properties-common</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加Docker的官方GPG密钥：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>确认指纹为<code>9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88</code>,如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-key fingerprint 0EBFCD88</span><br><span class="line"></span><br><span class="line">pub   rsa4096 2017-02-22 [SCEA]</span><br><span class="line">      9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88</span><br><span class="line">uid           [ unknown] Docker Release (CE deb) &lt;docker@docker.com&gt;</span><br><span class="line">sub   rsa4096 2017-02-22 [S]</span><br></pre></td></tr></table></figure></p>
-<ol start="3">
-<li>设置使用的仓库版本。因为我使用的是Linux amd64的系统，所以我使用如下设置，若有不同，参考<a href="https://docs.docker.com/engine/install/ubuntu/" target="_blank" rel="noopener">docker的Ubuntu安装文档</a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository \</span><br><span class="line">   <span class="string">"deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span></span><br><span class="line"><span class="string">   <span class="variable">$(lsb_release -cs)</span> \</span></span><br><span class="line"><span class="string">   stable"</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="安装docker-1"><a href="#安装docker-1" class="headerlink" title="安装docker"></a>安装docker</h4><p>更新<code>apt</code>包索引后，就可以通过<code>apt</code>直接安装了：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure></p>
-<h3 id="后续操作"><a href="#后续操作" class="headerlink" title="后续操作"></a>后续操作</h3><p>设置docker daemon 在系统启动的时候自动启动，使用下边的命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl <span class="built_in">enable</span> docker</span><br></pre></td></tr></table></figure></p>
-<p>将自己的用户添加到 docker 组，这样就不用每次执行docker都使用<code>sudo</code>了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo usermod -a -G docker &lt;username&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="安装docker-compose"><a href="#安装docker-compose" class="headerlink" title="安装docker compose"></a>安装docker compose</h2><p>参考：<a href="https://docs.docker.com/compose" target="_blank" rel="noopener">compose docs</a></p>
-<ol>
-<li><p>下载docker-compose</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo curl -L <span class="string">"https://github.com/docker/compose/releases/download/1.26.0/docker-compose-<span class="variable">$(uname -s)</span>-<span class="variable">$(uname -m)</span>"</span> -o /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>给予文件夹可执行权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果执行<code>docker-compose</code>失败，则建立软连接</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo ln -s /usr/<span class="built_in">local</span>/bin/docker-compose /usr/bin/docker-compose</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>查看版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker-compose --version</span><br><span class="line">docker-compose version 1.26.0, build d4451659</span><br></pre></td></tr></table></figure></p>
-<h2 id="安装Go语言"><a href="#安装Go语言" class="headerlink" title="安装Go语言"></a>安装Go语言</h2><p>下载Go语言包之后,解压到<code>/usr/local</code>，或者其他地方<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo tar -C /usr/<span class="built_in">local</span> -xzf go<span class="variable">$VERSION</span>.<span class="variable">$OS</span>-<span class="variable">$ARCH</span>.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>把<code>/usr/local/go/bin</code>添加到环境变量，在<code>/etc/profile</code> (为整个系统安装)或 <code>$HOME/.profile</code>（为当前用户安装）最后一行添加如下语句：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/go/bin</span><br></pre></td></tr></table></figure></p>
-<p><strong>注意</strong>：更改完profile文件后，不会立即生效，需要执行如<code>source $HOME/.profile</code>的命令才会生效。</p>
-<p>另外，还需要将<code>GOPATH</code>添加进环境变量中</p>
-<h2 id="Node-js-运行环境及-NPM"><a href="#Node-js-运行环境及-NPM" class="headerlink" title="Node.js 运行环境及 NPM"></a>Node.js 运行环境及 NPM</h2>
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/06/17/install-fabric/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
