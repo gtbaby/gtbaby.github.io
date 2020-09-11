@@ -9,6 +9,9 @@ categories: 区块链
 ---
 
 写这篇文章主要是记录下自己在搭建Hyperledger Fabric时候遇到的一些坑。做个备忘吧。
+
+<!-- more -->
+
 **搭建环境**：Ubuntu 18.04 LTS系统
 **参考**：[Hyperledger Fabric中文文档](https://hyperledger-fabric.readthedocs.io/zh_CN/latest/install.html)
 
